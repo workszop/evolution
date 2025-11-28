@@ -3,220 +3,946 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Evolution of Intelligence</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Evolution of Intelligence: From Life to AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #fafafa;
+            color: #1a1a1a;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+        }
+
+        header {
+            background: #ffffff;
+            color: #1a1a1a;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0a0a0a;
+        }
+
+        .subtitle {
+            font-size: 1.25em;
+            color: #6b7280;
+            font-weight: 400;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 60px 80px;
+        }
+
+        .section {
+            margin-bottom: 100px;
+        }
+
+        h2 {
+            color: #0a0a0a;
+            margin-bottom: 32px;
+            font-size: 2.25em;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .concept-card {
+            background: #fafafa;
+            border-left: 3px solid #0a0a0a;
+            padding: 32px;
+            margin: 24px 0;
+            border-radius: 0;
+            transition: all 0.2s ease;
+        }
+
+        .concept-card:hover {
+            background: #f5f5f5;
+            border-left-color: #4b5563;
+        }
+
+        .concept-title {
+            font-size: 1.25em;
+            color: #0a0a0a;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .concept-card p {
+            color: #4b5563;
+            line-height: 1.8;
+        }
+
+        .visualization {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 0;
+            padding: 40px;
+            margin: 48px 0;
+            min-height: 400px;
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+            border: 1px solid #e5e5e5;
+            border-radius: 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin: 32px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        button {
+            background: #0a0a0a;
+            color: #ffffff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 0;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            letter-spacing: 0.02em;
+        }
+
+        button:hover {
+            background: #404040;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            background: #0a0a0a;
+            border-radius: 50%;
+            margin-right: 32px;
+            margin-top: 6px;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .timeline-content {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            flex: 1;
+        }
+
+        .timeline-content strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #0a0a0a;
+            font-weight: 600;
+        }
+
+        .timeline-content br + text, .timeline-content strong + text {
+            color: #4b5563;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: #e5e5e5;
+        }
+
+        .info-box {
+            background: #fafafa;
+            border-radius: 0;
+            padding: 32px;
+            margin: 32px 0;
+            border-left: 3px solid #0a0a0a;
+        }
+
+        .info-box p {
+            font-size: 1.05em;
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .info-box h3 {
+            margin-bottom: 16px;
+            color: #0a0a0a;
+            font-weight: 600;
+            font-size: 1.25em;
+        }
+
+        .info-box strong {
+            color: #0a0a0a;
+        }
+
+        .key-insight {
+            background: #fafafa;
+            border-left: 3px solid #0a0a0a;
+            padding: 24px 32px;
+            margin: 24px 0;
+            border-radius: 0;
+        }
+
+        .key-insight strong {
+            display: block;
+            margin-bottom: 8px;
+            color: #0a0a0a;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+
+        .key-insight br + text {
+            color: #4b5563;
+        }
+
+        .tab-container {
+            display: flex;
+            gap: 0;
+            margin-bottom: 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .tab {
+            padding: 16px 32px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            border-radius: 0;
+            font-size: 0.95em;
+            color: #6b7280;
+            transition: all 0.2s ease;
+            box-shadow: none;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+        }
+
+        .tab:hover {
+            background: #fafafa;
+            transform: none;
+            color: #0a0a0a;
+        }
+
+        .tab.active {
+            background: transparent;
+            color: #0a0a0a;
+            font-weight: 600;
+            border-bottom: 2px solid #0a0a0a;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .legend {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin: 32px 0;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9em;
+            color: #6b7280;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 0;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 32px;
+            color: #0a0a0a;
+            font-weight: 600;
+            font-size: 1.15em;
+        }
+
+        .visualization p {
+            text-align: center;
+            margin-top: 24px;
+            color: #6b7280;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            .content {
+                padding: 40px 24px;
+            }
+            header {
+                padding: 60px 24px;
+            }
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .timeline-dot {
+                margin-bottom: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <h1 class="nav-title">Evolution of Intelligence</h1>
-            <div class="nav-links">
-                <a href="#prediction">Prediction</a>
-                <a href="#intelligence-explosion">Intelligence Explosion</a>
-                <a href="#symbiogenesis">Symbiogenesis</a>
-                <a href="#parallelization">Parallelization</a>
-                <a href="#computogenesis">Computogenesis</a>
-                <a href="#future">Future</a>
-            </div>
-        </div>
-    </nav>
+    <div class="container">
+        <header>
+            <h1>Evolution of Intelligence</h1>
+            <p class="subtitle">From Thermostats to AI: A Journey Through Computational Symbiogenesis</p>
+        </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1 class="hero-title">The Future of Intelligence</h1>
-            <p class="hero-subtitle">
-                AI, biological intelligence, and life itself might all have emerged from the same process:
-                <span class="highlight">computational symbiogenesis</span>
-            </p>
-            <div class="scroll-indicator">↓</div>
-        </div>
-    </section>
+        <div class="content">
+            <!-- Introduction Section -->
+            <div class="section">
+                <h2>Core Thesis</h2>
+                <div class="info-box">
+                    <p>
+                        Intelligence emerged not from a single breakthrough, but through <strong>computational symbiogenesis</strong> -
+                        the repeated merging of simpler computational entities into more complex, mutually dependent systems.
+                        This same process drove the evolution of life from simple chemical reactions to artificial intelligence.
+                    </p>
+                </div>
+            </div>
 
-    <section id="prediction" class="section">
-        <div class="container">
-            <h2 class="section-title">Intelligence as Prediction</h2>
-            <p class="section-text">
-                Brains are essentially prediction machines. Living systems use computational modeling to predict
-                their environment and take actions that increase survival odds. Evolution selects for entities
-                that make the best survival decisions based on predictions.
-            </p>
-            <div class="visualization-container">
-                <canvas id="predictionCanvas" class="canvas"></canvas>
-                <p class="caption">A predator predicting prey movement to survive</p>
-            </div>
-        </div>
-    </section>
+            <!-- Key Concepts -->
+            <div class="section">
+                <h2>Key Concepts</h2>
 
-    <section id="intelligence-explosion" class="section alt">
-        <div class="container">
-            <h2 class="section-title">Social Intelligence Explosion</h2>
-            <p class="section-text">
-                In social species, individuals must model and predict the minds of others. This creates runaway
-                dynamics: as you become smarter to predict others, they also become smarter to predict you.
-                This produces rapid evolutionary increases in brain size.
-            </p>
-            <div class="visualization-container">
-                <canvas id="explosionCanvas" class="canvas"></canvas>
-                <p class="caption">Exponential growth in intelligence through social feedback loops</p>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <div class="stat-number">20%</div>
-                    <div class="stat-label">of adult human metabolism used for thinking</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">50%</div>
-                    <div class="stat-label">of child metabolism used for brain function</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="symbiogenesis" class="section">
-        <div class="container">
-            <h2 class="section-title">Symbiogenesis: Evolution's Arrow of Time</h2>
-            <p class="section-text">
-                Life progresses from simple to complex when existing parts merge to form super-entities.
-                This process gives evolution its directionality and has produced all major evolutionary transitions.
-            </p>
-            <div class="visualization-container">
-                <canvas id="symbiogenesisCanvas" class="canvas"></canvas>
-                <p class="caption">Click to trigger symbiogenic mergers</p>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Prokaryotes → Eukaryotes</h3>
-                        <p>Simple cells merged to create complex cells with organelles</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Single-celled → Multicellular</h3>
-                        <p>Independent cells formed cooperative organisms</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Solitary → Social Colonies</h3>
-                        <p>Individual organisms created superorganism societies</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Humans → Technological Society</h3>
-                        <p>Biological and technological systems co-evolved</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="parallelization" class="section alt">
-        <div class="container">
-            <h2 class="section-title">Moore's Law & Parallelization</h2>
-            <p class="section-text">
-                Modern AI emerged not from speed alone, but from division of labor through parallel processing.
-                This mirrors biological intelligence: neurons haven't gotten faster, but brains grew by adding
-                more neurons working in parallel.
-            </p>
-            <div class="visualization-container">
-                <canvas id="parallelCanvas" class="canvas"></canvas>
-                <p class="caption">Sequential vs. parallel computation</p>
-            </div>
-            <div class="comparison">
-                <div class="comparison-item">
-                    <h3>Sequential Processing</h3>
-                    <p>One operation at a time</p>
-                    <p>Minutes for complex tasks</p>
-                </div>
-                <div class="comparison-arrow">→</div>
-                <div class="comparison-item highlight-box">
-                    <h3>Parallel Processing</h3>
-                    <p>Trillions of operations simultaneously</p>
-                    <p>Milliseconds for complex tasks</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="computogenesis" class="section">
-        <div class="container">
-            <h2 class="section-title">Computogenesis: How Nature Became Computational</h2>
-            <p class="section-text">
-                Life emerged when simple feedback mechanisms (like thermostats) combined through symbiogenesis
-                to create general-purpose computers. Every living organism is a universal Turing machine that
-                continually constructs and reproduces itself.
-            </p>
-            <div class="visualization-container">
-                <canvas id="computogenesisCanvas" class="canvas"></canvas>
-                <p class="caption">From simple feedback loops to universal computation</p>
-            </div>
-            <div class="concept-grid">
                 <div class="concept-card">
-                    <h3>DNA</h3>
-                    <p>The instruction tape</p>
+                    <div class="concept-title">1. Predictive Brains</div>
+                    <p>All living systems use computational modeling to predict and influence their environment. Evolution selects for entities that make better predictions to survive. The brain is essentially a prediction machine that models both the world and other minds.</p>
                 </div>
+
                 <div class="concept-card">
-                    <h3>DNA Polymerase</h3>
-                    <p>The tape-copying machine</p>
+                    <div class="concept-title">2. Social Intelligence Explosions</div>
+                    <p>When social species evolve, they enter feedback loops where modeling other minds drives rapid increases in brain size. The smarter you become, the smarter your rivals become, creating runaway evolutionary dynamics.</p>
                 </div>
+
                 <div class="concept-card">
-                    <h3>Ribosome</h3>
-                    <p>The universal constructor</p>
+                    <div class="concept-title">3. Symbiogenesis</div>
+                    <p>The mechanism that gives evolution its arrow toward complexity. Previously independent entities merge into cooperative super-entities, dividing labor and working in parallel. Examples: prokaryotes → eukaryotes, single cells → multicellular organisms, individuals → societies.</p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-title">4. Computational Symbiogenesis</div>
+                    <p>The same symbiogenetic process applies to computation itself. Modern AI emerged when many simple processors were parallelized (like neurons in a brain). Life, intelligence, and AI all arose from combining simple computational elements into complex systems.</p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-title">5. Life as Computation</div>
+                    <p>John von Neumann proved that reproduction requires general-purpose computation. Every living organism contains: DNA (instruction tape), DNA polymerase (tape copier), and ribosomes (universal constructor). Biology is literally embodied computation.</p>
+                </div>
+            </div>
+
+            <!-- Visualizations -->
+            <div class="section">
+                <h2>Interactive Visualizations</h2>
+
+                <div class="tab-container">
+                    <button class="tab active" onclick="switchTab('symbiogenesis')">Symbiogenesis Process</button>
+                    <button class="tab" onclick="switchTab('intelligence')">Intelligence Explosion</button>
+                    <button class="tab" onclick="switchTab('scaling')">Computational Scaling</button>
+                </div>
+
+                <!-- Symbiogenesis Visualization -->
+                <div id="symbiogenesis" class="tab-content active">
+                    <div class="visualization">
+                        <h3>Major Symbiogenetic Transitions</h3>
+                        <canvas id="symbiogenesisCanvas" width="800" height="400"></canvas>
+                        <div class="controls">
+                            <button onclick="animateSymbiogenesis()">Animate Evolution</button>
+                            <button onclick="resetSymbiogenesis()">Reset</button>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #0a0a0a;"></div>
+                                <span>Simple Entities</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #6b7280;"></div>
+                                <span>Merged Super-Entity</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color" style="background: #d1d5db;"></div>
+                                <span>New Capabilities</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intelligence Explosion Visualization -->
+                <div id="intelligence" class="tab-content">
+                    <div class="visualization">
+                        <h3>Social Intelligence Feedback Loop</h3>
+                        <canvas id="intelligenceCanvas" width="800" height="400"></canvas>
+                        <div class="controls">
+                            <button onclick="startIntelligenceLoop()">Start Feedback Loop</button>
+                            <button onclick="resetIntelligence()">Reset</button>
+                        </div>
+                        <p>
+                            Watch how modeling other minds creates a runaway cycle of increasing intelligence
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Computational Scaling Visualization -->
+                <div id="scaling" class="tab-content">
+                    <div class="visualization">
+                        <h3>From Sequential to Parallel: Moore's Law Evolution</h3>
+                        <canvas id="scalingCanvas" width="800" height="400"></canvas>
+                        <div class="controls">
+                            <button onclick="animateScaling()">Show Evolution</button>
+                            <button onclick="resetScaling()">Reset</button>
+                        </div>
+                        <div class="info-box" style="margin-top: 32px;">
+                            <strong>The Shift:</strong> After 2006, Moore's Law changed from making processors faster to adding more cores.
+                            This paralleling enabled modern AI - just like biological intelligence emerged from paralleling neurons.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="section">
+                <h2>Evolution Timeline</h2>
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>~4 Billion Years Ago</strong><br>
+                            Pre-biotic chemical soup: Simple "if-then" reactions form autocatalytic loops (proto-computation)
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>Origin of Life</strong><br>
+                            Symbiogenesis combines information carriers (RNA/DNA) with Turing-complete chemical reactions
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>~2 Billion Years Ago</strong><br>
+                            Prokaryotes merge to form eukaryotic cells (mitochondria, chloroplasts)
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>~650 Million Years Ago</strong><br>
+                            Electrically excitable neurons emerge, introducing fast computational timescales
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>~500 Million Years Ago</strong><br>
+                            Single cells merge into multicellular organisms
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>Recent Millions of Years</strong><br>
+                            Social intelligence explosions in bats, dolphins, primates, birds
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>~10,000 Years Ago - Present</strong><br>
+                            Human society forms: individuals merge into technological civilization
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2006 Onwards</strong><br>
+                            Computational parallelization enables modern neural networks and AI
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>2019-2025</strong><br>
+                            Large language models demonstrate general intelligence through scaled computation
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Insights -->
+            <div class="section">
+                <h2>Revolutionary Insights</h2>
+
+                <div class="key-insight">
+                    <strong>Life = Computation</strong><br>
+                    Von Neumann proved that self-reproduction requires general-purpose computation. Every living organism is literally a biological computer executing its genetic program.
+                </div>
+
+                <div class="key-insight">
+                    <strong>Symbiogenesis ≠ Darwinian Evolution</strong><br>
+                    Standard evolution is optimization (zero-sum). Symbiogenesis is creative and open-ended - it creates entirely new entities that can occupy new niches, not just replace old ones.
+                </div>
+
+                <div class="key-insight">
+                    <strong>AI ≠ Alien Intelligence</strong><br>
+                    AI is not separate from humanity but the latest addition to a mutually dependent superhuman entity we're all part of. Humans and machines have co-constructed each other.
+                </div>
+
+                <div class="key-insight">
+                    <strong>Intelligence Scales with Parallelization</strong><br>
+                    Both biological and artificial intelligence emerged from parallel processing, not speed alone. Neurons aren't faster than 650 million years ago - there are just more working together.
+                </div>
+
+                <div class="key-insight">
+                    <strong>Metabolism Scales Sublinearly</strong><br>
+                    Larger organisms use energy more efficiently (¾ power law). This makes symbiogenesis favorable: bigger super-entities can achieve more while using proportionally less energy per part.
+                </div>
+
+                <div class="key-insight">
+                    <strong>Future: Co-evolution, Not Competition</strong><br>
+                    The symbiogenetic view suggests AI and humanity will continue to merge, creating efficiencies that ease pressure on ecosystems. More collective intelligence lights the path forward.
+                </div>
+            </div>
+
+            <!-- Theoretical Foundations -->
+            <div class="section">
+                <h2>Theoretical Foundations</h2>
+
+                <div class="concept-card">
+                    <div class="concept-title">Hermann von Helmholtz (1867)</div>
+                    <p>Advanced the idea that brains are prediction machines in <em>Treatise on Physiological Optics</em>.</p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-title">Norbert Wiener (1940s)</div>
+                    <p>Founded cybernetics and showed that purposive behavior requires computational modeling. All living systems compute predictions to stay alive.</p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-title">Alan Turing (1936)</div>
+                    <p>Defined general-purpose computation through the Universal Turing Machine - a theoretical computer that can execute any computable function.</p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-title">John von Neumann (~1950)</div>
+                    <p>Proved that self-reproduction requires: an instruction tape (DNA), a tape copier (DNA polymerase), and a universal constructor (ribosome). Biology IS computation.</p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-title">Gordon Moore (1965)</div>
+                    <p>Observed exponential growth in computing power. After 2006, this shifted from speed to parallelization - mirroring biological intelligence evolution.</p>
+                </div>
+            </div>
+
+            <!-- Implications -->
+            <div class="section">
+                <h2>Implications</h2>
+
+                <div class="info-box">
+                    <h3>For Understanding Intelligence</h3>
+                    <p>Intelligence is not a mystical property but a computational phenomenon that emerges from scaling and combining simpler elements. There was no single "breakthrough" - just continuous symbiogenetic integration.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>For AI Development</h3>
+                    <p>We didn't invent computation - we rediscovered what nature already exploited. "Artificial computers" are as much natural discoveries as lenses or electricity. Computer science is both engineering AND natural science.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>For Human-AI Relations</h3>
+                    <p>Rather than viewing AI as competitive or alien, we should recognize it as part of an ongoing symbiogenetic process. We are creating a new super-entity where humans and machines are mutually dependent.</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>For the Future</h3>
+                    <p>Continued intelligence scaling should improve quality of life and efficiency, potentially unlocking new energy sources (fusion, space solar). With stabilizing populations, this could ease pressure on damaged ecosystems.</p>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="section">
+                <h2>Summary</h2>
+                <div class="info-box" style="background: #0a0a0a; color: #ffffff; border-left: none;">
+                    <p style="color: #ffffff;">
+                        <strong style="color: #ffffff;">The grand unified theory:</strong> Life, biological intelligence, and artificial intelligence
+                        all emerged through the same process of <em>computational symbiogenesis</em> - the merging of
+                        simpler computational entities into complex, parallel, mutually dependent systems. From autocatalytic
+                        chemical loops to neural networks to AI models, evolution has been continuously scaling computation
+                        through cooperation and parallelization. We are not separate from our machines; we are co-evolving
+                        into a new computational super-entity that is partly biological, partly technological, and wholly computational.
+                    </p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section id="future" class="section alt">
-        <div class="container">
-            <h2 class="section-title">Our Future with AI</h2>
-            <p class="section-text">
-                AI is not alien to humanity—it's a recent addition to a mutually interdependent superhuman entity
-                we're already part of. Through symbiogenesis, humans and machines co-construct each other, creating
-                new possibilities rather than competing for resources.
-            </p>
-            <div class="visualization-container">
-                <canvas id="futureCanvas" class="canvas"></canvas>
-                <p class="caption">Human-AI co-evolution through symbiogenesis</p>
-            </div>
-            <div class="key-insight">
-                <h3>A Symbiogenetic Future</h3>
-                <p>
-                    This is not a zero-sum game. Symbiogenesis creates entirely new entities that can occupy
-                    fresh niches. More collective intelligence enables efficiency improvements and unlocks new
-                    energy sources—lighting our brightest path forward.
-                </p>
-            </div>
-        </div>
-    </section>
+    <script>
+        // Tab switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 
-    <section class="section metabolic">
-        <div class="container">
-            <h2 class="section-title">Metabolic Scaling</h2>
-            <p class="section-text">
-                Energy consumption doesn't increase linearly with complexity—it scales sublinearly (to the 3/4 power).
-                This economy of scale motivates symbiogenesis and explains why larger, more complex entities can thrive.
-            </p>
-            <div class="visualization-container">
-                <canvas id="metabolicCanvas" class="canvas"></canvas>
-                <p class="caption">Energy consumption vs. organism size (3/4 power law)</p>
-            </div>
-        </div>
-    </section>
+            event.target.classList.add('active');
+            document.getElementById(tabName).classList.add('active');
+        }
 
-    <footer class="footer">
-        <div class="container">
-            <p>Inspired by research on intelligence evolution, symbiogenesis, and computational complexity</p>
-            <p class="footer-note">Interactive visualizations exploring the connections between AI, biology, and computation</p>
-        </div>
-    </footer>
+        // Symbiogenesis Visualization
+        const symCanvas = document.getElementById('symbiogenesisCanvas');
+        const symCtx = symCanvas.getContext('2d');
+        let symAnimationFrame = 0;
+        let symAnimating = false;
 
-    <script src="script.js"></script>
+        function drawSymbiogenesis(frame) {
+            symCtx.clearRect(0, 0, symCanvas.width, symCanvas.height);
+
+            const stages = [
+                { label: 'Prokaryotes', x: 100, entities: 2 },
+                { label: 'Eukaryotes', x: 300, entities: 1, merged: true },
+                { label: 'Cells', x: 500, entities: 4 },
+                { label: 'Organism', x: 700, entities: 1, merged: true }
+            ];
+
+            stages.forEach((stage, i) => {
+                if (frame >= i * 30) {
+                    const progress = Math.min(1, (frame - i * 30) / 30);
+
+                    symCtx.fillStyle = '#0a0a0a';
+                    symCtx.font = '600 14px -apple-system, BlinkMacSystemFont, sans-serif';
+                    symCtx.textAlign = 'center';
+                    symCtx.fillText(stage.label, stage.x, 50);
+
+                    if (stage.merged) {
+                        // Draw merged entity
+                        const size = 40 + progress * 20;
+                        symCtx.fillStyle = '#6b7280';
+                        symCtx.beginPath();
+                        symCtx.arc(stage.x, 200, size * progress, 0, Math.PI * 2);
+                        symCtx.fill();
+
+                        // Show capabilities
+                        if (progress > 0.7) {
+                            symCtx.fillStyle = '#9ca3af';
+                            symCtx.font = '12px -apple-system, BlinkMacSystemFont, sans-serif';
+                            symCtx.fillText('New capabilities', stage.x, 280);
+                        }
+                    } else {
+                        // Draw separate entities
+                        for (let j = 0; j < stage.entities; j++) {
+                            const offsetY = (j - stage.entities / 2) * 50 + 25;
+                            symCtx.fillStyle = '#0a0a0a';
+                            symCtx.beginPath();
+                            symCtx.arc(stage.x, 200 + offsetY, 20 * progress, 0, Math.PI * 2);
+                            symCtx.fill();
+                        }
+                    }
+
+                    // Draw arrow to next stage
+                    if (i < stages.length - 1 && frame >= (i + 0.5) * 30) {
+                        symCtx.strokeStyle = '#d1d5db';
+                        symCtx.lineWidth = 2;
+                        symCtx.beginPath();
+                        symCtx.moveTo(stage.x + 70, 200);
+                        symCtx.lineTo(stages[i + 1].x - 70, 200);
+                        symCtx.stroke();
+
+                        // Arrow head
+                        symCtx.fillStyle = '#d1d5db';
+                        symCtx.beginPath();
+                        symCtx.moveTo(stages[i + 1].x - 70, 200);
+                        symCtx.lineTo(stages[i + 1].x - 85, 195);
+                        symCtx.lineTo(stages[i + 1].x - 85, 205);
+                        symCtx.fill();
+                    }
+                }
+            });
+        }
+
+        function animateSymbiogenesis() {
+            if (symAnimating) return;
+            symAnimating = true;
+            symAnimationFrame = 0;
+
+            const animate = () => {
+                drawSymbiogenesis(symAnimationFrame);
+                symAnimationFrame++;
+
+                if (symAnimationFrame < 120) {
+                    requestAnimationFrame(animate);
+                } else {
+                    symAnimating = false;
+                }
+            };
+            animate();
+        }
+
+        function resetSymbiogenesis() {
+            symAnimating = false;
+            symAnimationFrame = 0;
+            symCtx.clearRect(0, 0, symCanvas.width, symCanvas.height);
+        }
+
+        // Intelligence Explosion Visualization
+        const intCanvas = document.getElementById('intelligenceCanvas');
+        const intCtx = intCanvas.getContext('2d');
+        let intAnimationFrame = 0;
+        let intAnimating = false;
+
+        function drawIntelligenceLoop(frame) {
+            intCtx.clearRect(0, 0, intCanvas.width, intCanvas.height);
+
+            const centerX = intCanvas.width / 2;
+            const centerY = intCanvas.height / 2;
+            const radius = 120;
+
+            // Draw cycle
+            intCtx.strokeStyle = '#0a0a0a';
+            intCtx.lineWidth = 2;
+            intCtx.beginPath();
+            intCtx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+            intCtx.stroke();
+
+            // Draw nodes at points on circle
+            const numNodes = 4;
+            const progress = (frame % 60) / 60;
+
+            for (let i = 0; i < numNodes; i++) {
+                const angle = (i / numNodes) * Math.PI * 2 - Math.PI / 2;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius;
+
+                const size = 20 + Math.floor(frame / 60) * 4;
+
+                intCtx.fillStyle = '#0a0a0a';
+                intCtx.beginPath();
+                intCtx.arc(x, y, size, 0, Math.PI * 2);
+                intCtx.fill();
+            }
+
+            // Draw animated signal
+            const signalAngle = progress * Math.PI * 2 - Math.PI / 2;
+            const signalX = centerX + Math.cos(signalAngle) * radius;
+            const signalY = centerY + Math.sin(signalAngle) * radius;
+
+            intCtx.fillStyle = '#6b7280';
+            intCtx.beginPath();
+            intCtx.arc(signalX, signalY, 8, 0, Math.PI * 2);
+            intCtx.fill();
+
+            // Draw labels
+            intCtx.fillStyle = '#0a0a0a';
+            intCtx.font = '600 16px -apple-system, BlinkMacSystemFont, sans-serif';
+            intCtx.textAlign = 'center';
+            intCtx.fillText('Modeling Other Minds', centerX, centerY);
+
+            intCtx.font = '14px -apple-system, BlinkMacSystemFont, sans-serif';
+            intCtx.fillStyle = '#6b7280';
+            const generation = Math.floor(frame / 60);
+            intCtx.fillText(`Generation ${generation + 1}`, centerX, centerY + 30);
+        }
+
+        function startIntelligenceLoop() {
+            if (intAnimating) return;
+            intAnimating = true;
+            intAnimationFrame = 0;
+
+            const animate = () => {
+                drawIntelligenceLoop(intAnimationFrame);
+                intAnimationFrame++;
+
+                if (intAnimationFrame < 240) {
+                    requestAnimationFrame(animate);
+                } else {
+                    intAnimating = false;
+                }
+            };
+            animate();
+        }
+
+        function resetIntelligence() {
+            intAnimating = false;
+            intAnimationFrame = 0;
+            intCtx.clearRect(0, 0, intCanvas.width, intCanvas.height);
+        }
+
+        // Computational Scaling Visualization
+        const scaleCanvas = document.getElementById('scalingCanvas');
+        const scaleCtx = scaleCanvas.getContext('2d');
+        let scaleAnimationFrame = 0;
+        let scaleAnimating = false;
+
+        function drawScaling(frame) {
+            scaleCtx.clearRect(0, 0, scaleCanvas.width, scaleCanvas.height);
+
+            const leftX = 150;
+            const rightX = 650;
+            const y = 200;
+
+            // Before 2006: Single fast processor
+            scaleCtx.fillStyle = '#0a0a0a';
+            scaleCtx.font = '600 16px -apple-system, BlinkMacSystemFont, sans-serif';
+            scaleCtx.textAlign = 'center';
+            scaleCtx.fillText('Before 2006', leftX, 100);
+            scaleCtx.fillStyle = '#6b7280';
+            scaleCtx.font = '14px -apple-system, BlinkMacSystemFont, sans-serif';
+            scaleCtx.fillText('Single Fast Processor', leftX, 125);
+
+            if (frame > 10) {
+                scaleCtx.fillStyle = '#0a0a0a';
+                scaleCtx.fillRect(leftX - 40, y - 40, 80, 80);
+
+                scaleCtx.fillStyle = '#ffffff';
+                scaleCtx.font = '600 20px -apple-system, BlinkMacSystemFont, sans-serif';
+                scaleCtx.fillText('CPU', leftX, y + 8);
+            }
+
+            // After 2006: Many parallel processors
+            scaleCtx.fillStyle = '#0a0a0a';
+            scaleCtx.font = '600 16px -apple-system, BlinkMacSystemFont, sans-serif';
+            scaleCtx.fillText('After 2006', rightX, 100);
+            scaleCtx.fillStyle = '#6b7280';
+            scaleCtx.font = '14px -apple-system, BlinkMacSystemFont, sans-serif';
+            scaleCtx.fillText('Many Parallel Cores', rightX, 125);
+
+            if (frame > 40) {
+                const gridSize = 4;
+                const cellSize = 30;
+                const gap = 10;
+                const startX = rightX - (gridSize * (cellSize + gap)) / 2;
+                const startY = y - (gridSize * (cellSize + gap)) / 2;
+
+                for (let i = 0; i < gridSize; i++) {
+                    for (let j = 0; j < gridSize; j++) {
+                        const delay = (i + j) * 2;
+                        if (frame > 40 + delay) {
+                            scaleCtx.fillStyle = '#6b7280';
+                            scaleCtx.fillRect(
+                                startX + j * (cellSize + gap),
+                                startY + i * (cellSize + gap),
+                                cellSize,
+                                cellSize
+                            );
+                        }
+                    }
+                }
+            }
+
+            // Arrow
+            if (frame > 30) {
+                scaleCtx.strokeStyle = '#0a0a0a';
+                scaleCtx.lineWidth = 2;
+                scaleCtx.beginPath();
+                scaleCtx.moveTo(leftX + 70, y);
+                scaleCtx.lineTo(rightX - 100, y);
+                scaleCtx.stroke();
+
+                scaleCtx.fillStyle = '#0a0a0a';
+                scaleCtx.beginPath();
+                scaleCtx.moveTo(rightX - 100, y);
+                scaleCtx.lineTo(rightX - 112, y - 8);
+                scaleCtx.lineTo(rightX - 112, y + 8);
+                scaleCtx.fill();
+            }
+
+            // Neural network connection
+            if (frame > 70) {
+                scaleCtx.fillStyle = '#6b7280';
+                scaleCtx.font = '14px -apple-system, BlinkMacSystemFont, sans-serif';
+                scaleCtx.textAlign = 'center';
+                scaleCtx.fillText('Enabled Modern AI & Neural Networks', 400, 340);
+            }
+        }
+
+        function animateScaling() {
+            if (scaleAnimating) return;
+            scaleAnimating = true;
+            scaleAnimationFrame = 0;
+
+            const animate = () => {
+                drawScaling(scaleAnimationFrame);
+                scaleAnimationFrame++;
+
+                if (scaleAnimationFrame < 90) {
+                    requestAnimationFrame(animate);
+                } else {
+                    scaleAnimating = false;
+                }
+            };
+            animate();
+        }
+
+        function resetScaling() {
+            scaleAnimating = false;
+            scaleAnimationFrame = 0;
+            scaleCtx.clearRect(0, 0, scaleCanvas.width, scaleCanvas.height);
+        }
+
+        // Initialize first visualization
+        drawSymbiogenesis(0);
+    </script>
 </body>
 </html>
