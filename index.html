@@ -89,6 +89,11 @@
         .concept-card p {
             color: #4b5563;
             line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .concept-card p:last-child {
+            margin-bottom: 0;
         }
 
         .visualization {
@@ -198,6 +203,11 @@
             font-size: 1.05em;
             line-height: 1.8;
             color: #4b5563;
+            margin-bottom: 16px;
+        }
+
+        .info-box p:last-child {
+            margin-bottom: 0;
         }
 
         .info-box h3 {
@@ -316,6 +326,62 @@
             font-size: 0.95em;
         }
 
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .stat-card {
+            background: #fafafa;
+            padding: 24px;
+            border-left: 3px solid #0a0a0a;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #0a0a0a;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #4b5563;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .example-box {
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .example-box h4 {
+            color: #0a0a0a;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1.1em;
+        }
+
+        .example-box p {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        ul {
+            margin: 16px 0;
+            padding-left: 32px;
+        }
+
+        ul li {
+            color: #4b5563;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2em;
@@ -333,6 +399,9 @@
             .timeline-dot {
                 margin-bottom: 12px;
             }
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -349,9 +418,18 @@
                 <h2>Core Thesis</h2>
                 <div class="info-box">
                     <p>
-                        Intelligence emerged not from a single breakthrough, but through <strong>computational symbiogenesis</strong> -
+                        Intelligence emerged not from a single breakthrough, but through <strong>computational symbiogenesis</strong> —
                         the repeated merging of simpler computational entities into more complex, mutually dependent systems.
                         This same process drove the evolution of life from simple chemical reactions to artificial intelligence.
+                    </p>
+                    <p>
+                        If scaling up computation yields AI, could the kind of intelligence shown by living organisms, humans included,
+                        also be the result of computational scaling? The answer appears to be yes. AI, biological intelligence, and indeed
+                        life itself might all have emerged from the same fundamental process.
+                    </p>
+                    <p>
+                        This insight sheds fresh light not just on AI and neuroscience, but also on theoretical biology, evolution,
+                        and complexity science. It reveals how human and machine intelligence are destined to co-evolve in the future.
                     </p>
                 </div>
             </div>
@@ -362,27 +440,43 @@
 
                 <div class="concept-card">
                     <div class="concept-title">1. Predictive Brains</div>
-                    <p>All living systems use computational modeling to predict and influence their environment. Evolution selects for entities that make better predictions to survive. The brain is essentially a prediction machine that models both the world and other minds.</p>
+                    <p>The idea that brains are essentially prediction machines was advanced by German physicist Hermann von Helmholtz in his <em>Treatise on Physiological Optics</em> (1867) and developed further by Norbert Wiener in the early 1940s.</p>
+                    <p>Wiener realized that all living systems have "purposive" behaviors to stay alive, and that such actions require computational modeling. Our internal and external senses enable us to compute predictive models of ourselves and our environment. But these are useful only if we can act to affect the future—specifically, to increase the odds that we will still be thriving.</p>
+                    <p>Evolution selects for entities that use predictions to make the best survival decisions. The actions we take, and the observations that ensue, create a feedback loop that enables us to make further predictions.</p>
+                    <p><strong>Hunting as Prediction:</strong> A predator must predict actions that will get prey into its stomach; the prey must predict the predator's behavior to stop that from happening. Starting in the 1970s, researchers realized that other intelligent entities are often the most important parts of the environment to model—because they are modeling you back, whether with friendly or hostile intent.</p>
                 </div>
 
                 <div class="concept-card">
                     <div class="concept-title">2. Social Intelligence Explosions</div>
-                    <p>When social species evolve, they enter feedback loops where modeling other minds drives rapid increases in brain size. The smarter you become, the smarter your rivals become, creating runaway evolutionary dynamics.</p>
+                    <p>When social species evolve, individuals must model and predict the minds of others. Winning mates, sharing resources, gaining followers, teaching, learning, and dividing labor: all involve modeling and predicting the minds of others.</p>
+                    <p>This creates runaway dynamics: the more intelligent you become to predict others, the more intelligent those others have also become, because they are of the same species doing the same thing. These dynamics produce "intelligence explosions"—rapid evolutionary increases in brain size observed in highly social animals.</p>
+                    <p><strong>Examples include:</strong> bats, whales and dolphins, birds, and our own primate ancestors. During such explosions, individuals get smarter, but so do groups. Bigger brains can model more relationships, allowing groups to become larger while retaining social cohesion.</p>
+                    <p>Individually, humans aren't much smarter than our primate ancestors. Humans raised in the wild would seem unexceptional relative to the forest's other animals. But in large numbers, humans achieve improbably complex feats: transplanting organs, traveling to the Moon, manufacturing silicon chips. These require cooperation, thinking in parallel, and division of labor—group-level, superhuman phenomena.</p>
                 </div>
 
                 <div class="concept-card">
-                    <div class="concept-title">3. Symbiogenesis</div>
-                    <p>The mechanism that gives evolution its arrow toward complexity. Previously independent entities merge into cooperative super-entities, dividing labor and working in parallel. Examples: prokaryotes → eukaryotes, single cells → multicellular organisms, individuals → societies.</p>
+                    <div class="concept-title">3. Symbiogenesis: Evolution's Arrow of Time</div>
+                    <p>Standard Darwinian evolution has no intrinsic bias towards increasing complexity. It is symbiogenesis—the merging of previously independent entities into cooperative super-entities—that gives evolution its arrow of time. Life progresses from simple to complex when existing parts merge to form new super-entities, dividing labor and working in parallel.</p>
+                    <p><strong>Major transitions include:</strong> prokaryotic cells to eukaryotic ones (incorporating mitochondria and chloroplasts), single-celled life to multicellular organisms, solitary insects to colony-dwellers, and individuals to technological societies.</p>
+                    <p>A growing body of evidence suggests symbiogenesis is much more common than previously supposed. Horizontal gene transfer, retroviral incorporation into genomes, and symbiotic bacteria in animal guts are commonplace examples. Termites digest wood entirely through enzymes from symbiotic microorganisms. The placental barrier in humans depends on syncytin, a protein derived from a retrovirus that fused into the mammalian germ line tens of millions of years ago.</p>
+                    <p>This process speeds up over time, as the catalogue of parts available to be combined increases in size and sophistication. Over the past billion years, symbiogenesis has produced increasingly complex nervous systems, colonies of social animals, and eventually our technological society.</p>
                 </div>
 
                 <div class="concept-card">
-                    <div class="concept-title">4. Computational Symbiogenesis</div>
-                    <p>The same symbiogenetic process applies to computation itself. Modern AI emerged when many simple processors were parallelized (like neurons in a brain). Life, intelligence, and AI all arose from combining simple computational elements into complex systems.</p>
+                    <div class="concept-title">4. Computational Symbiogenesis and Moore's Law</div>
+                    <p>Biological cells have not become exponentially smaller or faster throughout evolution. Electrically excitable neurons emerged around 650 million years ago, introducing fast computational timescales, but since then neurons haven't become faster or smaller.</p>
+                    <p><strong>The 2006 Shift:</strong> Since around 2006, transistors continued to shrink, but semiconductor operating speed stalled. To keep increasing computer performance, chip-makers began adding more processing cores—they parallelized computation. This is when modern, neural-net-based AI finally took off.</p>
+                    <p>Practically speaking, neural nets require massively parallel processing. For a single modern processor to sequentially perform the trillion operations needed for a large language model to predict the next token would take minutes. AI emerged not through speed alone, but from division of labor arising from cooperation of many simple computational elements running in parallel.</p>
+                    <p>This technological symbiogenesis mirrors biological intelligence. Neurons haven't gotten faster over 650 million years—there are just more working together. The same symbiogenetic process applies to computation itself.</p>
                 </div>
 
                 <div class="concept-card">
-                    <div class="concept-title">5. Life as Computation</div>
-                    <p>John von Neumann proved that reproduction requires general-purpose computation. Every living organism contains: DNA (instruction tape), DNA polymerase (tape copier), and ribosomes (universal constructor). Biology is literally embodied computation.</p>
+                    <div class="concept-title">5. Life as Computation: Computogenesis</div>
+                    <p><strong>Proto-Life as Thermostats:</strong> Imagine randomly configured feedback mechanisms simple enough to arise spontaneously in a thermally variable environment. Those that persist will be ones maintaining their temperature within the right range so they can continue operating—behaving like thermostats oriented towards self-preservation.</p>
+                    <p>Even a thermostat performs computation: it implements behavior (turn heat on or off) conditional on information input (temperature). A minimal kind of computation—an "if...then" operation—arises and persists whenever the output can affect the likelihood of whatever is doing the computation continuing to exist.</p>
+                    <p><strong>Von Neumann's Insight:</strong> Around 1950, John von Neumann discovered that living systems must heal, grow, or reproduce—processes involving self-construction. For a complex system to build a copy of itself, it must contain: an instruction tape specifying assembly steps (DNA), a tape-copying machine (DNA polymerase), and a universal constructor executing the tape's instructions (ribosome).</p>
+                    <p>Von Neumann showed that the universal constructor is a universal Turing machine. Reproduction is a form of general computation. Biology is literally, by construction, an embodied instance of general-purpose computation.</p>
+                    <p><strong>The Origin of Life:</strong> Around hydrothermal vents in Earth's oceans four billion years ago, every chemical reaction was a potential instruction in a stochastic computational "soup": if these molecules are present, then react to produce this. Some reactions formed autocatalytic loops. Long-chain molecules acted as information-carrying tapes. All it took to spark life was a symbiogenic event combining the information carrier with a Turing-complete ensemble of chemical reactions.</p>
                 </div>
             </div>
 
@@ -420,6 +514,12 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="example-box">
+                        <h4>Real-World Examples</h4>
+                        <p><strong>Termites and Wood Digestion:</strong> Termites can only digest wood through enzymes produced entirely by symbiotic microorganisms in their guts. This symbiogenetic relationship created an entirely new niche.</p>
+                        <p style="margin-top: 12px;"><strong>Human Placenta:</strong> The placental barrier depends on syncytin, a protein derived from a retroviral envelope that fused into the mammalian germ line tens of millions of years ago. A virus became an essential part of human reproduction.</p>
+                    </div>
                 </div>
 
                 <!-- Intelligence Explosion Visualization -->
@@ -435,6 +535,21 @@
                             Watch how modeling other minds creates a runaway cycle of increasing intelligence
                         </p>
                     </div>
+
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">20%</div>
+                            <div class="stat-label">of adult human metabolism consumed by thinking—much larger than our smaller-brained ancestors</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">50%</div>
+                            <div class="stat-label">of child metabolism consumed by brain function, as brains are even larger relative to body size</div>
+                        </div>
+                    </div>
+
+                    <div class="info-box" style="margin-top: 32px;">
+                        <p><strong>Species with Intelligence Explosions:</strong> Rapid evolutionary increases in brain size have been observed in bats, whales, dolphins, many bird species, and our primate ancestors. In each case, social pressures to model other minds drove runaway dynamics where becoming smarter meant your rivals also became smarter.</p>
+                    </div>
                 </div>
 
                 <!-- Computational Scaling Visualization -->
@@ -447,8 +562,9 @@
                             <button onclick="resetScaling()">Reset</button>
                         </div>
                         <div class="info-box" style="margin-top: 32px;">
-                            <strong>The Shift:</strong> After 2006, Moore's Law changed from making processors faster to adding more cores.
-                            This paralleling enabled modern AI - just like biological intelligence emerged from paralleling neurons.
+                            <p><strong>The 2006 Watershed:</strong> Moore's Law originally meant transistors shrank exponentially, translating into exponential increases in operating speed. But around 2006, speed increases stalled. Chip-makers began adding more processing cores instead—parallelizing computation.</p>
+                            <p>This shift enabled modern AI. Neural networks require massively parallel processing. A single processor performing the trillion operations needed for a large language model sequentially would take minutes. This paralleling mirrors biological intelligence: neurons haven't gotten faster in 650 million years—there are just more working together.</p>
+                            <p><strong>Computer Science as Natural Science:</strong> Humans did not invent computation any more than we invented electric current or optical lenses. We merely rediscovered a phenomenon nature already exploited, developed mathematical theories to understand it, and engineered it on different substrates.</p>
                         </div>
                     </div>
                 </div>
@@ -463,8 +579,8 @@
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <strong>~4 Billion Years Ago</strong><br>
-                            Pre-biotic chemical soup: Simple "if-then" reactions form autocatalytic loops (proto-computation)
+                            <strong>~4 Billion Years Ago (Hadean Eon)</strong><br>
+                            Pre-biotic chemical soup around hydrothermal vents: Simple "if-then" reactions form autocatalytic loops. Random feedback mechanisms persist when they maintain conditions for their own operation—proto-life behaving like thermostats.
                         </div>
                     </div>
 
@@ -472,7 +588,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>Origin of Life</strong><br>
-                            Symbiogenesis combines information carriers (RNA/DNA) with Turing-complete chemical reactions
+                            Symbiogenesis combines information carriers (RNA/DNA) with Turing-complete chemical reactions. Long-chain polymers act as instruction tapes, catalytic loops as processors—the first universal constructors emerge.
                         </div>
                     </div>
 
@@ -480,7 +596,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>~2 Billion Years Ago</strong><br>
-                            Prokaryotes merge to form eukaryotic cells (mitochondria, chloroplasts)
+                            Prokaryotes merge to form eukaryotic cells through endosymbiosis. Mitochondria and chloroplasts were once independent bacteria that became organelles, dividing metabolic labor.
                         </div>
                     </div>
 
@@ -488,15 +604,15 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>~650 Million Years Ago</strong><br>
-                            Electrically excitable neurons emerge, introducing fast computational timescales
+                            Electrically excitable neurons emerge, introducing fast computational timescales. This was a one-off event: neurons have not become faster since, but more neurons have been added through parallelization.
                         </div>
                     </div>
 
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
-                            <strong>~500 Million Years Ago</strong><br>
-                            Single cells merge into multicellular organisms
+                            <strong>~600-500 Million Years Ago</strong><br>
+                            Single cells merge into multicellular organisms through symbiogenesis. Cells specialize and divide labor, creating organisms with new capabilities impossible for individual cells.
                         </div>
                     </div>
 
@@ -504,7 +620,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>Recent Millions of Years</strong><br>
-                            Social intelligence explosions in bats, dolphins, primates, birds
+                            Social intelligence explosions in bats, dolphins, whales, birds, and primates. Modeling other minds creates runaway dynamics: as you become smarter, so do your rivals, driving rapid brain size increases.
                         </div>
                     </div>
 
@@ -512,7 +628,15 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>~10,000 Years Ago - Present</strong><br>
-                            Human society forms: individuals merge into technological civilization
+                            Human society forms through technological symbiogenesis. Individuals merge into civilization, achieving superhuman feats: organ transplants, Moon landings, silicon chip manufacturing. Machines and humans co-construct each other.
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <strong>1965 - 2006</strong><br>
+                            Moore's Law drives exponential increases in processor speed through transistor miniaturization. Computing power increases exponentially, but along a single-threaded, sequential paradigm.
                         </div>
                     </div>
 
@@ -520,7 +644,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>2006 Onwards</strong><br>
-                            Computational parallelization enables modern neural networks and AI
+                            Moore's Law shifts from speed to parallelization. Chip-makers add more processing cores instead of making single cores faster. This enables modern neural networks and AI through technological symbiogenesis.
                         </div>
                     </div>
 
@@ -528,44 +652,54 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-content">
                             <strong>2019-2025</strong><br>
-                            Large language models demonstrate general intelligence through scaled computation
+                            Large language models like Meena, LaMDA, and GPT series demonstrate general intelligence through scaled computation. Next-word predictors can understand new concepts, write jokes, debug code—intelligence tests that once distinguished humans from machines become unreliable.
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Key Insights -->
+            <!-- Revolutionary Insights -->
             <div class="section">
                 <h2>Revolutionary Insights</h2>
 
                 <div class="key-insight">
-                    <strong>Life = Computation</strong><br>
-                    Von Neumann proved that self-reproduction requires general-purpose computation. Every living organism is literally a biological computer executing its genetic program.
+                    <strong>Life = Computation (Von Neumann's Discovery)</strong><br>
+                    Von Neumann proved that self-reproduction requires: an instruction tape (DNA), a tape copier (DNA polymerase), and a universal constructor (ribosome). The universal constructor is a universal Turing machine. Reproduction is general computation. Biology is literally, by construction, embodied computation.
                 </div>
 
                 <div class="key-insight">
                     <strong>Symbiogenesis ≠ Darwinian Evolution</strong><br>
-                    Standard evolution is optimization (zero-sum). Symbiogenesis is creative and open-ended - it creates entirely new entities that can occupy new niches, not just replace old ones.
+                    Standard evolution operating on a single species is an optimization algorithm—a zero-sum game where one genetic strain replaces another. Symbiogenesis is creative and open-ended: it creates entirely new entities that can occupy or even create fresh niches. It is not optimization, but creative exploration.
                 </div>
 
                 <div class="key-insight">
                     <strong>AI ≠ Alien Intelligence</strong><br>
-                    AI is not separate from humanity but the latest addition to a mutually dependent superhuman entity we're all part of. Humans and machines have co-constructed each other.
+                    AI is not distinct from humanity, but a recent addition to a mutually interdependent superhuman entity we're all already part of. Machines would not exist without people, but nowhere near as many people could exist without machines. We've escaped the Malthusian trap of bare subsistence. Machines and human society have co-constructed each other through symbiogenesis.
                 </div>
 
                 <div class="key-insight">
-                    <strong>Intelligence Scales with Parallelization</strong><br>
-                    Both biological and artificial intelligence emerged from parallel processing, not speed alone. Neurons aren't faster than 650 million years ago - there are just more working together.
+                    <strong>Intelligence Scales Through Parallelization, Not Speed</strong><br>
+                    Both biological and artificial intelligence emerged from parallel processing, not speed alone. Neurons aren't faster than 650 million years ago—there are just more working together. After 2006, Moore's Law shifted from making processors faster to adding more cores. AI emerged when simple computational elements were parallelized, just like brains.
                 </div>
 
                 <div class="key-insight">
-                    <strong>Metabolism Scales Sublinearly</strong><br>
-                    Larger organisms use energy more efficiently (¾ power law). This makes symbiogenesis favorable: bigger super-entities can achieve more while using proportionally less energy per part.
+                    <strong>Metabolism Scales Sublinearly (3/4 Power Law)</strong><br>
+                    Energy consumption doesn't increase linearly with mass, but as the three-quarters power. This economy of scale motivates symbiogenesis: division of labor increases efficiency. Bigger super-entities achieve more while using proportionally less energy per part. This explains why aggregation through symbiogenesis is favorable despite costly intelligence requirements.
                 </div>
 
                 <div class="key-insight">
-                    <strong>Future: Co-evolution, Not Competition</strong><br>
-                    The symbiogenetic view suggests AI and humanity will continue to merge, creating efficiencies that ease pressure on ecosystems. More collective intelligence lights the path forward.
+                    <strong>Evolution as a Quest for Free Energy</strong><br>
+                    Evolution, especially in its creative symbiogenetic aspect, is a continuous quest for fresh sources of free energy. Human collective intelligence has unlocked many sources: fire, domesticated animals, waterwheels, fossil fuels, nuclear fission. This allowed humanity to explode in numbers while enjoying widespread increases in quality of life—until we hit sustainability limits.
+                </div>
+
+                <div class="key-insight">
+                    <strong>Computer Science as Both Engineering and Natural Science</strong><br>
+                    Humans did not invent computation any more than we invented electric current or optical lenses. We rediscovered what nature already exploited, developed mathematical theories to understand it, and engineered it on different substrates. Our "artificial computers" are as much natural discoveries as lenses or electricity.
+                </div>
+
+                <div class="key-insight">
+                    <strong>Nothing in Evolution Makes Sense Except Through Computational Symbiogenesis</strong><br>
+                    Geneticist Theodosius Dobzhansky observed that "nothing in biology makes sense except in the light of evolution." We might say nothing in evolution—starting with the origin of life itself—makes sense except in the light of computational symbiogenesis. Even life's emergence required symbiogenesis to combine information carriers with Turing-complete chemical reactions.
                 </div>
             </div>
 
@@ -575,27 +709,32 @@
 
                 <div class="concept-card">
                     <div class="concept-title">Hermann von Helmholtz (1867)</div>
-                    <p>Advanced the idea that brains are prediction machines in <em>Treatise on Physiological Optics</em>.</p>
+                    <p>German physicist and physician who advanced the idea that brains are prediction machines in his <em>Treatise on Physiological Optics</em>. This foundational insight predated modern neuroscience by over a century.</p>
                 </div>
 
                 <div class="concept-card">
                     <div class="concept-title">Norbert Wiener (1940s)</div>
-                    <p>Founded cybernetics and showed that purposive behavior requires computational modeling. All living systems compute predictions to stay alive.</p>
+                    <p>Founded cybernetics and showed that purposive behavior requires computational modeling. Wiener realized that all living systems must compute predictive models to take actions that increase survival odds. This was a starting point of modern, neural-net-based AI research.</p>
                 </div>
 
                 <div class="concept-card">
                     <div class="concept-title">Alan Turing (1936)</div>
-                    <p>Defined general-purpose computation through the Universal Turing Machine - a theoretical computer that can execute any computable function.</p>
+                    <p>Defined general-purpose computation through the Universal Turing Machine: a theoretical computer with a head that moves along a tape, reading, writing, and erasing symbols according to rules. Certain rule tables can read programs from the tape and execute any computable function.</p>
                 </div>
 
                 <div class="concept-card">
                     <div class="concept-title">John von Neumann (~1950)</div>
-                    <p>Proved that self-reproduction requires: an instruction tape (DNA), a tape copier (DNA polymerase), and a universal constructor (ribosome). Biology IS computation.</p>
+                    <p>Discovered the link between general computation and biology. For complex self-construction, organisms need: an instruction tape (DNA), a tape-copying machine (DNA polymerase), and a universal constructor (ribosome). Von Neumann showed the universal constructor is a universal Turing machine—reproduction requires general computation.</p>
                 </div>
 
                 <div class="concept-card">
                     <div class="concept-title">Gordon Moore (1965)</div>
-                    <p>Observed exponential growth in computing power. After 2006, this shifted from speed to parallelization - mirroring biological intelligence evolution.</p>
+                    <p>Observed exponential growth in computing power through transistor miniaturization (Moore's Law). Originally meant exponential speed increases, but after 2006 shifted to parallelization—adding more cores instead of making single cores faster. This shift enabled modern AI and mirrors biological intelligence evolution.</p>
+                </div>
+
+                <div class="concept-card">
+                    <div class="concept-title">Theodosius Dobzhansky (20th Century)</div>
+                    <p>Geneticist who observed that "nothing in biology makes sense except in the light of evolution." This principle extends further: nothing in evolution—including life's origin—makes sense except in the light of computational symbiogenesis.</p>
                 </div>
             </div>
 
@@ -605,22 +744,61 @@
 
                 <div class="info-box">
                     <h3>For Understanding Intelligence</h3>
-                    <p>Intelligence is not a mystical property but a computational phenomenon that emerges from scaling and combining simpler elements. There was no single "breakthrough" - just continuous symbiogenetic integration.</p>
+                    <p>Intelligence is not a mystical property but a computational phenomenon emerging from scaling and combining simpler elements. There was no single "breakthrough"—just continuous symbiogenetic integration. If scaling computation yields AI, then biological intelligence also resulted from computational scaling.</p>
+                    <p>Individually, humans aren't much smarter than our primate ancestors. Humans raised in the wild would seem unexceptional. But in large numbers, we achieve superhuman feats through cooperation, parallel thinking, and division of labor. Intelligence is as much a group-level phenomenon as an individual one.</p>
                 </div>
 
                 <div class="info-box">
                     <h3>For AI Development</h3>
-                    <p>We didn't invent computation - we rediscovered what nature already exploited. "Artificial computers" are as much natural discoveries as lenses or electricity. Computer science is both engineering AND natural science.</p>
+                    <p>The path to AI didn't require some fundamentally new scientific insight. It turned out to be a matter of scaling computation—specifically, parallelizing it. Neural networks needed massively parallel processing, which became practical only after 2006 when chip-makers shifted from speed to adding cores.</p>
+                    <p>We didn't invent computation—we rediscovered what nature already exploited. "Artificial computers" are as much natural discoveries as lenses or electricity. Computer science is both engineering AND natural science. This reframes AI not as alien technology but as rediscovery of nature's computational principles.</p>
                 </div>
 
                 <div class="info-box">
                     <h3>For Human-AI Relations</h3>
-                    <p>Rather than viewing AI as competitive or alien, we should recognize it as part of an ongoing symbiogenetic process. We are creating a new super-entity where humans and machines are mutually dependent.</p>
+                    <p>Rather than viewing AI as competitive or alien, we should recognize it as part of ongoing symbiogenesis. We are creating a new super-entity where humans and machines are mutually dependent. This entity has long been partly biological, partly technological—and always wholly computational.</p>
+                    <p>Machines wouldn't exist without people, but nowhere near as many people as are alive today could exist without machines freeing us from the Malthusian trap of bare-bones agricultural subsistence. (Lower-tech hunting and gathering, though arguably less miserable, supports even lower population densities.) Machines and human society have co-constructed each other.</p>
                 </div>
 
                 <div class="info-box">
-                    <h3>For the Future</h3>
-                    <p>Continued intelligence scaling should improve quality of life and efficiency, potentially unlocking new energy sources (fusion, space solar). With stabilizing populations, this could ease pressure on damaged ecosystems.</p>
+                    <h3>For the Future: A Sunnier View</h3>
+                    <p>People often presume that evolution and intelligence are zero-sum optimization processes, and that AI is competitive with humanity. The symbiogenetic view doesn't guarantee positive outcomes, but neither does it position AI as an alien "other," nor the future as a Malthusian tug-of-war over resources.</p>
+                    <p>We can expect continued intelligence scaling to produce continuous improvements in quality of human lives and efficiency of our collective "metabolism"—including energy production, manufacturing, transportation, and construction. It might unlock unexpected energy sources: nuclear fusion, space-based solar power.</p>
+                    <p>If the metabolic scaling laws of evolution offer any guide (3/4 power law), intelligence-enabled efficiencies and fresh energy sources will more than compensate for AI's terrestrial resource footprint. With stabilizing human populations, this implies easing pressure on ecosystems damaged by our explosive and inefficient growth over the past two centuries.</p>
+                    <p><strong>More collective intelligence, not less, lights our brightest path forward.</strong></p>
+                </div>
+
+                <div class="info-box">
+                    <h3>For Understanding Life's Origin</h3>
+                    <p>The emergence of life was a great puzzle for Darwin and his contemporaries. It's hard to imagine how life could arise without a mechanism for pre-existing, non-living parts to assemble into something new and alive. Symbiogenesis is that mechanism.</p>
+                    <p>Around hydrothermal vents four billion years ago, every chemical reaction was a potential computational instruction. Some reactions formed autocatalytic loops—self-perpetuating thermostats oriented toward self-preservation. Long-chain molecules acted as information tapes. All it took was a symbiogenic event combining information carriers with Turing-complete chemical reactions.</p>
+                </div>
+            </div>
+
+            <!-- Metabolic Scaling -->
+            <div class="section">
+                <h2>Metabolic Scaling and Energy</h2>
+
+                <div class="info-box">
+                    <p>Computations involve irreversible steps, consuming free energy while ejecting waste heat—what in biology is called metabolism. Energy needed by a living entity scales with its size and intelligence: the computations needed for autopoiesis (self-construction) and thinking.</p>
+                    <p>Thinking burns 20% of an adult human's metabolic budget. In children, whose brains are larger relative to their bodies, it's close to 50%. These numbers are much larger than for our smaller-brained ancestors.</p>
+                </div>
+
+                <div class="example-box">
+                    <h4>Why Symbiogenesis Despite Energy Costs?</h4>
+                    <p>Economies of scale provide the answer. Division of labor increases efficiency, as popularized by Ford Motor's assembly line in the early 20th century. An organism's energy consumption does not increase linearly with mass, but as the three-quarters power—sublinear scaling.</p>
+                    <p style="margin-top: 12px;">This sublinear scaling in energy demand can, on its own, motivate symbiogenesis. Bigger super-entities can achieve more while using proportionally less energy per part. Combined with fresh energy sources that rising collective intelligence unlocks, this creates favorable conditions for continued symbiogenetic transitions.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">3/4</div>
+                        <div class="stat-label">Power law: Energy consumption scales sublinearly with organism mass, enabling efficient aggregation</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Energy sources unlocked by intelligence: fire, water, fossil fuels, nuclear—with fusion and space solar next</div>
+                    </div>
                 </div>
             </div>
 
@@ -630,11 +808,25 @@
                 <div class="info-box" style="background: #0a0a0a; color: #ffffff; border-left: none;">
                     <p style="color: #ffffff;">
                         <strong style="color: #ffffff;">The grand unified theory:</strong> Life, biological intelligence, and artificial intelligence
-                        all emerged through the same process of <em>computational symbiogenesis</em> - the merging of
-                        simpler computational entities into complex, parallel, mutually dependent systems. From autocatalytic
-                        chemical loops to neural networks to AI models, evolution has been continuously scaling computation
-                        through cooperation and parallelization. We are not separate from our machines; we are co-evolving
-                        into a new computational super-entity that is partly biological, partly technological, and wholly computational.
+                        all emerged through the same process of <em>computational symbiogenesis</em>—the merging of
+                        simpler computational entities into complex, parallel, mutually dependent systems.
+                    </p>
+                    <p style="color: #ffffff;">
+                        From autocatalytic chemical loops around hydrothermal vents to electrically excitable neurons to massively parallel
+                        neural networks, evolution has been continuously scaling computation through cooperation and parallelization.
+                        Standard Darwinian evolution optimizes fitness through zero-sum competition. Symbiogenesis is creative and
+                        open-ended: it creates entirely new entities that can occupy fresh niches, giving evolution its arrow of time.
+                    </p>
+                    <p style="color: #ffffff;">
+                        We are not separate from our machines; we are co-evolving into a new computational super-entity that is
+                        partly biological, partly technological, and wholly computational. Machines wouldn't exist without us, but
+                        nowhere near as many of us could exist without machines. This isn't competition—it's symbiogenesis.
+                    </p>
+                    <p style="color: #ffffff;">
+                        The future is not a Malthusian tug-of-war, but a continued quest for fresh sources of free energy and efficiency
+                        improvements enabled by collective intelligence. If metabolic scaling laws hold, intelligence-enabled efficiencies
+                        will more than compensate for resource consumption. With stabilizing populations, this eases pressure on damaged
+                        ecosystems. <strong style="color: #ffffff;">More collective intelligence, not less, lights our brightest path forward.</strong>
                     </p>
                 </div>
             </div>
